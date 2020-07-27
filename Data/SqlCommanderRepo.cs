@@ -24,6 +24,13 @@ namespace Commander.Data
             this.SaveChanges();
         }
 
+        public void DeleteCommand(Command cmd)
+        {
+            _context.Commands.Remove(cmd);
+
+            this.SaveChanges();
+        }
+
         public Command GetCommandById(int id)
         {
             return _context.Commands.FirstOrDefault(p => p.Id == id);

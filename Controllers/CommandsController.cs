@@ -74,5 +74,14 @@ namespace Commander.Controllers
                 commandRead
             );
         }
+
+        [HttpDelete("{id}", Name="DeleteCommand")]
+        public ActionResult DeleteCommand(int id)
+        {
+            var commandFromRepo = _repoistory.GetCommandById(id);
+            _repoistory.DeleteCommand(commandFromRepo);
+
+            return NoContent();
+        }
     }
 }
