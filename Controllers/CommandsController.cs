@@ -55,5 +55,24 @@ namespace Commander.Controllers
                 "getCommandById", new {id = commandRead.Id}, commandRead
             );
         }
+
+        [HttpPut("{id}", Name="UpdateCommand")]
+        public ActionResult<CommandReadDto> UpdateCommand(int id, CommandUpdateDto cmd)
+        {
+            var commandModelFromRepo = _repoistory.GetCommandById(id);
+
+            if (commandModelFromRepo == null) {
+                return NotFound();
+            }
+
+            _mapper.Map(cmd, commandModelFromRepo);
+            _repoistory.UpdateCommand(commandModelFromRepo);
+
+            var commandRead = _mapper.Map<CommandReadDto>(commandModelFromRepo);
+
+            return Ok(
+                commandRead
+            );
+        }
     }
 }
