@@ -79,6 +79,11 @@ namespace Commander.Controllers
         public ActionResult DeleteCommand(int id)
         {
             var commandFromRepo = _repoistory.GetCommandById(id);
+
+            if (commandFromRepo == null) {
+                return NotFound();
+            }
+
             _repoistory.DeleteCommand(commandFromRepo);
 
             return NoContent();
