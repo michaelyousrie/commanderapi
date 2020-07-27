@@ -30,7 +30,7 @@ namespace Commander.Controllers
             );
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetCommandById")]
         public ActionResult <CommandReadDto> getCommandById(int id)
         {
             var commandItem = _repoistory.GetCommandById(id);
@@ -40,6 +40,19 @@ namespace Commander.Controllers
 
             return Ok(
                 _mapper.Map<CommandReadDto>(commandItem)
+            );
+        }
+
+        [HttpPost]
+        public ActionResult <CommandReadDto> CreateCommand(CommandCreateDto commandCreateDto)
+        {
+            var commandModel = _mapper.Map<Command>(commandCreateDto);
+            _repoistory.CreateCommand(commandModel);
+
+            var commandRead = _mapper.Map<CommandReadDto>(commandModel);
+
+            return CreatedAtRoute(
+                "getCommandById", new {id = commandRead.Id}, commandRead
             );
         }
     }
