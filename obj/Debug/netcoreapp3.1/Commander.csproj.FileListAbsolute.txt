@@ -52,3 +52,5 @@
 /Users/michael/Documents/Projects/dotnet/Commander/bin/Debug/netcoreapp3.1/System.Xml.XPath.XmlDocument.dll
 /Users/michael/Documents/Projects/dotnet/Commander/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 /Users/michael/Documents/Projects/dotnet/Commander/obj/Debug/netcoreapp3.1/Commander.csproj.CopyComplete
+/Users/michael/Documents/Projects/dotnet/Commander/bin/Debug/netcoreapp3.1/AutoMapper.dll
+/Users/michael/Documents/Projects/dotnet/Commander/bin/Debug/netcoreapp3.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
